@@ -9,14 +9,7 @@ A lightweight, modern post-installation setup utility for Windows 11. Quickly co
 Open **PowerShell** and run:
 
 ```powershell
-& ([scriptblock]::Create((irm "https://raw.githubusercontent.com/<ngochoaphan2004>/Win11Afterboot/main/install.ps1")))
-```
-
-> **Tip:** Replace `<ngochoaphan2004>` with your GitHub username (or custom shortlink).
-
-Alternatively, you can also use:
-```powershell
-irm "https://raw.githubusercontent.com/<ngochoaphan2004>/Win11Afterboot/main/install.ps1" | iex
+& ([scriptblock]::Create((irm "https://raw.githubusercontent.com/ngochoaphan2004/Win11Afterboot/main/install.ps1")))
 ```
 
 ---
@@ -26,6 +19,7 @@ irm "https://raw.githubusercontent.com/<ngochoaphan2004>/Win11Afterboot/main/ins
 - **⚡ Silent App Installer**: Download and install essential tools unattended in the background:
   - **Browsers**: Google Chrome
   - **Development**: VS Code, Git, Python (choose versions 3.10 - 3.13), Visual Studio Community, Docker Desktop
+  - **Communication**: Zalo
   - **Utilities**: WinRAR
 - **🗓️ Instant Date Format Switcher**: Change Windows date formats (e.g. `dd/MM/yyyy`, `MM/dd/yyyy`, ISO `yyyy-MM-dd`) immediately without restarting your PC.
 - **⚡ Concurrent Downloads**: Multi-threaded downloader with real-time speed, progress bars, and file size tracking.

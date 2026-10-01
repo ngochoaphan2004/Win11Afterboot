@@ -4,12 +4,12 @@
 .DESCRIPTION
     Downloads and launches the latest version of Win11 After Boot.
 .EXAMPLE
-    & ([scriptblock]::Create((irm "https://raw.githubusercontent.com/<YOUR_USERNAME>/Win11Afterboot/main/install.ps1")))
+    & ([scriptblock]::Create((irm "https://raw.githubusercontent.com/ngochoaphan2004/Win11Afterboot/main/install.ps1")))
 #>
 
 [CmdletBinding()]
 param(
-    [string]$Repo = "phann/Win11Afterboot"
+    [string]$Repo = "ngochoaphan2004/Win11Afterboot"
 )
 
 $ErrorActionPreference = "Stop"

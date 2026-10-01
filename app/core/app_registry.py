@@ -2,7 +2,7 @@
 App Registry - Danh sách tất cả ứng dụng có thể tải
 """
 
-PYTHON_VERSIONS = ["3.13.0", "3.12.7", "3.12.0", "3.11.9", "3.11.0", "3.10.11", "3.10.0"]
+PYTHON_VERSIONS = ["3.13.16", "3.13.0", "3.12.10", "3.12.7", "3.11.9", "3.10.11"]
 
 APPS = [
     {
@@ -10,11 +10,11 @@ APPS = [
         "name": "Google Chrome",
         "description": "Trình duyệt web nhanh, bảo mật",
         "category": "Browser",
-        "size": "~100 MB",
+        "size": "~160 MB",
         "icon_char": "🌐",
         "color": "#4285F4",
-        "url": "https://dl.google.com/chrome/install/ChromeSetup.exe",
-        "filename": "ChromeSetup.exe",
+        "url": "https://dl.google.com/chrome/install/standalonesetup64.exe",
+        "filename": "ChromeStandaloneSetup64.exe",
         "install_args": ["/silent", "/install"],
         "checked_default": True,
     },
@@ -36,10 +36,10 @@ APPS = [
         "name": "Git",
         "description": "Hệ thống quản lý version code",
         "category": "Development",
-        "size": "~60 MB",
+        "size": "~66 MB",
         "icon_char": "🔀",
         "color": "#F05032",
-        "url": "https://github.com/git-for-windows/git/releases/download/v2.47.0.windows.1/Git-2.47.0-64-bit.exe",
+        "url": "https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.1/Git-2.56.0-64-bit.exe",
         "filename": "Git-64-bit.exe",
         "install_args": ["/VERYSILENT", "/NORESTART"],
         "checked_default": True,
@@ -57,7 +57,7 @@ APPS = [
         "install_args": ["/quiet", "InstallAllUsers=1", "PrependPath=1"],
         "has_version_select": True,
         "versions": PYTHON_VERSIONS,
-        "default_version": "3.12.7",
+        "default_version": "3.12.10",
         "checked_default": True,
     },
     {
@@ -68,7 +68,7 @@ APPS = [
         "size": "~4 MB",
         "icon_char": "📦",
         "color": "#8B5CF6",
-        "url": "https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-700.exe",
+        "url": "https://www.win-rar.com/fileadmin/winrar-versions/winrar/winrar-x64-723.exe",
         "filename": "winrar-x64.exe",
         "install_args": ["/S"],
         "checked_default": True,
@@ -105,11 +105,11 @@ APPS = [
         "name": "Zalo",
         "description": "Nhắn tin, gọi điện miễn phí",
         "category": "Communication",
-        "size": "~120 MB",
+        "size": "~180 MB",
         "icon_char": "💬",
         "color": "#0068FF",
-        "url": "https://res-download-pc.zadn.vn/ZaloSetup-latest.exe",
-        "filename": "ZaloSetup-latest.exe",
+        "url": "https://zalo.me/download/zalo-pc",
+        "filename": "ZaloSetup.exe",
         "install_args": ["/S"],
         "checked_default": True,
     },
