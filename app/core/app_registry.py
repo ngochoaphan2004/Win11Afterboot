@@ -97,12 +97,27 @@ APPS = [
         "url": "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe",
         "filename": "DockerDesktopInstaller.exe",
         "install_args": ["install", "--quiet"],
+        "requires_wsl": True,   # chạy `wsl --install` trước khi cài
         "checked_default": False,
+    },
+    {
+        "id": "zalo",
+        "name": "Zalo",
+        "description": "Nhắn tin, gọi điện miễn phí",
+        "category": "Communication",
+        "size": "~120 MB",
+        "icon_char": "💬",
+        "color": "#0068FF",
+        "url": "https://res-download-pc.zadn.vn/ZaloSetup-latest.exe",
+        "filename": "ZaloSetup-latest.exe",
+        "install_args": ["/S"],
+        "checked_default": True,
     },
 ]
 
 CATEGORIES = {
-    "Browser": {"label": "Trình duyệt", "color": "#4285F4"},
-    "Development": {"label": "Phát triển", "color": "#007ACC"},
-    "Utilities": {"label": "Tiện ích", "color": "#8B5CF6"},
+    "Browser":       {"label": "Trình duyệt",  "color": "#4A90D9"},
+    "Development":   {"label": "Phát triển",   "color": "#4A90D9"},
+    "Utilities":     {"label": "Tiện ích",      "color": "#7a90c8"},
+    "Communication": {"label": "Liên lạc",      "color": "#0068FF"},
 }

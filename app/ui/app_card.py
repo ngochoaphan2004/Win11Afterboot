@@ -142,9 +142,10 @@ class AppCard(ctk.CTkFrame):
         ).grid(row=0, column=0, sticky="w")
 
         cat_color = {
-            "Browser":     "#4A90D9",
-            "Development": "#4A90D9",
-            "Utilities":   "#7a90c8",
+            "Browser":       "#4A90D9",
+            "Development":   "#4A90D9",
+            "Utilities":     "#7a90c8",
+            "Communication": "#0068FF",
         }.get(app.get("category", ""), ACCENT)
 
         ctk.CTkLabel(
