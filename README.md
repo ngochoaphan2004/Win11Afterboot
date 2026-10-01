@@ -1,4 +1,4 @@
-# 🚀 Win11 After Boot
+# 🚀 Win11 After Boot (v1.1.0)
 
 A lightweight, modern post-installation setup utility for Windows 11. Quickly configure essential system settings and batch-install your favorite software silently.
 
@@ -18,7 +18,7 @@ Open **PowerShell** and run:
 
 - **⚡ Silent App Installer**: Download and install essential tools unattended in the background:
   - **Browsers**: Google Chrome
-  - **Development**: VS Code, Git, Python (choose versions 3.10 - 3.13), Visual Studio Community, Docker Desktop
+  - **Development**: VS Code, Git, Node.js (v20, v22, v24), Python (choose versions 3.10 - 3.13), Visual Studio Community, Docker Desktop
   - **Communication**: Zalo
   - **Utilities**: WinRAR
 - **🗓️ Instant Date Format Switcher**: Change Windows date formats (e.g. `dd/MM/yyyy`, `MM/dd/yyyy`, ISO `yyyy-MM-dd`) immediately without restarting your PC.

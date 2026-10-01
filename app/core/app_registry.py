@@ -3,6 +3,7 @@ App Registry - Danh sách tất cả ứng dụng có thể tải
 """
 
 PYTHON_VERSIONS = ["3.13.16", "3.13.0", "3.12.10", "3.12.7", "3.11.9", "3.10.11"]
+NODE_VERSIONS = ["v24.21.0", "v22.23.3", "v20.20.2"]
 
 APPS = [
     {
@@ -42,6 +43,22 @@ APPS = [
         "url": "https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.1/Git-2.56.0-64-bit.exe",
         "filename": "Git-64-bit.exe",
         "install_args": ["/VERYSILENT", "/NORESTART"],
+        "checked_default": True,
+    },
+    {
+        "id": "nodejs",
+        "name": "Node.js",
+        "description": "JavaScript runtime môi trường máy chủ",
+        "category": "Development",
+        "size": "~30 MB",
+        "icon_char": "🟢",
+        "color": "#339933",
+        "url": "https://nodejs.org/dist/{version}/node-{version}-x64.msi",
+        "filename": "node-{version}-x64.msi",
+        "install_args": ["/qn", "/norestart"],
+        "has_version_select": True,
+        "versions": NODE_VERSIONS,
+        "default_version": "v22.23.3",
         "checked_default": True,
     },
     {

@@ -25,6 +25,7 @@ from .settings_panel import SettingsPanel
 from ..core.app_registry import APPS
 from ..core.downloader import DownloadTask, DownloadManager
 from ..core.installer import InstallerRunner
+from .. import __version__
 
 
 class MainWindow(ctk.CTk):
@@ -56,7 +57,7 @@ class MainWindow(ctk.CTk):
     # =========================================================================
 
     def _setup_window(self):
-        self.title("🚀 Win11 After Boot")
+        self.title(f"🚀 Win11 After Boot v{__version__}")
         w, h = SIZES["window_width"], SIZES["window_height"]
         sw, sh = self.winfo_screenwidth(), self.winfo_screenheight()
         self.geometry(f"{w}x{h}+{(sw-w)//2}+{(sh-h)//2}")
@@ -101,7 +102,7 @@ class MainWindow(ctk.CTk):
 
         ctk.CTkLabel(
             tf,
-            text="  —  Cài đặt tiện ích nhanh sau cài Windows",
+            text=f"  —  Cài đặt tiện ích nhanh sau cài Windows (v{__version__})",
             font=FONTS["subtitle"],
             text_color=TEXT_MUTED,
         ).pack(side="left")

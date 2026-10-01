@@ -16,7 +16,7 @@ Set-Location -Path $PSScriptRoot
 
 Write-Host ""
 Write-Host "=============================================" -ForegroundColor Cyan
-Write-Host "   Win11 After Boot - Build Script           " -ForegroundColor Cyan
+Write-Host "   🚀 Win11 After Boot v1.1.0 - Build Script " -ForegroundColor Cyan
 Write-Host "=============================================" -ForegroundColor Cyan
 Write-Host ""
 
