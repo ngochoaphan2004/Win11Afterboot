@@ -21,7 +21,7 @@ $releaseUrl = "https://github.com/$Repo/releases/latest/download/Win11AfterBoot.
 
 Write-Host ""
 Write-Host "=============================================" -ForegroundColor Cyan
-Write-Host "   🚀 Win11 After Boot v1.1.0 Installer      " -ForegroundColor Cyan
+Write-Host "   🚀 Win11 After Boot v1.2.0 Installer      " -ForegroundColor Cyan
 Write-Host "=============================================" -ForegroundColor Cyan
 Write-Host ""
 

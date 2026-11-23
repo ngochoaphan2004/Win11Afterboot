@@ -3,11 +3,50 @@ Downloader - Tải file với theo dõi tiến trình, hỗ trợ multi-threadin
 """
 
 import os
+import re
 import threading
+import urllib.parse
 import requests
 import time
 from pathlib import Path
 from typing import Callable, Optional
+
+
+def sanitize_filename(name: str) -> str:
+    """Loại bỏ ký tự không hợp lệ trên Windows và khoảng trắng thừa"""
+    cleaned = re.sub(r'[\\/*?:"<>|;]', "", name).strip()
+    return cleaned
+
+
+def extract_filename_from_content_disposition(cd: str) -> Optional[str]:
+    """
+    Trích xuất tên file từ header Content-Disposition một cách an toàn.
+    Hỗ trợ cả filename*=UTF-8''... (RFC 6266/5987) và filename="..."
+    """
+    if not cd:
+        return None
+
+    # 1. Thử RFC 5987 / RFC 6266: filename*=charset'lang'value
+    m_star = re.search(r"filename\*\s*=\s*(?:[A-Za-z0-9_-]+''|)([^;]+)", cd, re.IGNORECASE)
+    if m_star:
+        raw = m_star.group(1).strip().strip('"').strip("'")
+        try:
+            unquoted = urllib.parse.unquote(raw)
+            sanitized = sanitize_filename(unquoted)
+            if sanitized:
+                return sanitized
+        except Exception:
+            pass
+
+    # 2. Thử filename="..." hoặc filename=...
+    m = re.search(r'filename\s*=\s*(?:"([^"]+)"|\'([^\']+)\'|([^;\s]+))', cd, re.IGNORECASE)
+    if m:
+        raw = (m.group(1) or m.group(2) or m.group(3) or "").strip().strip('"').strip("'")
+        sanitized = sanitize_filename(raw)
+        if sanitized:
+            return sanitized
+
+    return None
 
 
 DOWNLOAD_DIR = Path.home() / "Downloads" / "Win11AfterBoot"
@@ -58,7 +97,8 @@ class DownloadTask:
     def _download(self):
         self.status = "downloading"
         download_dir = get_download_dir()
-        self.file_path = download_dir / self.filename
+        filename = sanitize_filename(self.filename) if self.filename else ""
+        self.file_path = download_dir / (filename if filename else f"{self.app_id}_installer.exe")
 
         try:
             headers = {
@@ -72,12 +112,23 @@ class DownloadTask:
                 content_length = r.headers.get("content-length")
                 self.total_bytes = int(content_length) if content_length else 0
 
-                # Lấy tên file từ Content-Disposition nếu có
-                content_disposition = r.headers.get("content-disposition", "")
-                if "filename=" in content_disposition:
-                    fname = content_disposition.split("filename=")[-1].strip('"').strip("'")
-                    if fname:
-                        self.file_path = download_dir / fname
+                # Nếu chưa có filename hoặc filename không có phần mở rộng (extension)
+                if not filename or not Path(filename).suffix:
+                    cd = r.headers.get("content-disposition", "")
+                    cd_fname = extract_filename_from_content_disposition(cd)
+                    if cd_fname and Path(cd_fname).suffix:
+                        filename = cd_fname
+                    else:
+                        url_path = urllib.parse.urlparse(r.url).path
+                        url_fname = sanitize_filename(Path(url_path).name)
+                        if url_fname and Path(url_fname).suffix:
+                            filename = url_fname
+
+                if not filename:
+                    filename = f"{self.app_id}_installer.exe"
+
+                self.filename = filename
+                self.file_path = download_dir / filename
 
                 with open(self.file_path, "wb") as f:
                     start_time = time.time()

@@ -1,4 +1,4 @@
-# 🚀 Win11 After Boot (v1.1.0)
+# 🚀 Win11 After Boot (v1.2.0)
 
 A lightweight, modern post-installation setup utility for Windows 11. Quickly configure essential system settings and batch-install your favorite software silently.
 
@@ -17,6 +17,7 @@ Open **PowerShell** and run:
 ## ✨ Features
 
 - **⚡ Silent App Installer**: Download and install essential tools unattended in the background:
+  - **Office**: Microsoft 365 (Word, Excel, PowerPoint, Outlook)
   - **Browsers**: Google Chrome
   - **Development**: VS Code, Git, Node.js (v20, v22, v24), Python (choose versions 3.10 - 3.13), Visual Studio Community, Docker Desktop
   - **Communication**: Zalo

@@ -130,6 +130,19 @@ APPS = [
         "install_args": ["/S"],
         "checked_default": True,
     },
+    {
+        "id": "office365",
+        "name": "Microsoft 365",
+        "description": "Word, Excel, PowerPoint, Outlook bản mới nhất",
+        "category": "Office",
+        "size": "~7 MB (bootstrapper)",
+        "icon_char": "📊",
+        "color": "#D83B01",
+        "url": "https://officecdn.microsoft.com/pr/wsus/setup.exe",
+        "filename": "OfficeSetup.exe",
+        "install_args": ["/configure", "https://aka.ms/fhlwingetconfig"],
+        "checked_default": True,
+    },
 ]
 
 CATEGORIES = {
@@ -137,4 +150,5 @@ CATEGORIES = {
     "Development":   {"label": "Phát triển",   "color": "#4A90D9"},
     "Utilities":     {"label": "Tiện ích",      "color": "#7a90c8"},
     "Communication": {"label": "Liên lạc",      "color": "#0068FF"},
+    "Office":        {"label": "Văn phòng",    "color": "#D83B01"},
 }
